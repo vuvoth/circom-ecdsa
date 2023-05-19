@@ -138,8 +138,8 @@ function long_gt(n, k, a, b) {
 // b has k registers
 // a >= b
 function long_sub(n, k, a, b) {
-    var diff[100];
-    var borrow[100];
+    var diff[200];
+    var borrow[200];
     for (var i = 0; i < k; i++) {
         if (i == 0) {
            if (a[i] >= b[i]) {
@@ -240,7 +240,7 @@ function short_div_norm(n, k, a, b) {
       qhat = (1 << n) - 1;
    }
 
-   var mult[100] = long_scalar_mult(n, k, qhat, b);
+   var mult[200] = long_scalar_mult(n, k, qhat, b);
    if (long_gt(n, k + 1, mult, a) == 1) {
       mult = long_sub(n, k + 1, mult, b);
       if (long_gt(n, k + 1, mult, a) == 1) {
